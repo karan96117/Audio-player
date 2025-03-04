@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Listen to the best audio stories in the Super Yodha series. Enjoy seamless audio playback with a user-friendly interface.">
+    <meta name="keywords" content="audio stories, Super Yodha, storytelling, listen online">
+    <meta name="author" content="Your Name">
+    <title>🎵 Audio Player - Super Yodha</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            padding: 20px;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            width: 90%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .audio-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .audio-item:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.02);
+        }
+
+        .audio-item h3 {
+            flex: 1;
+            margin: 0;
+            font-size: 16px;
+            color: white;
+        }
+
+        .play-btn {
+            background: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: 0.3s;
+            outline: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-btn:hover {
+            background: #d9534f;
+            transform: scale(1.1);
+        }
+
+        /* Ad section */
+        .ad-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .audio-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .play-btn {
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎵 Audio Story Collection</h1>
+    </div>
+
+    <!-- Google AdSense Ad Slot (Replace with your AdSense Ad Unit ID) -->
+    <div class="ad-container">
+        <p>Advertisement</p>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-app-pub-5295395372805141~6850363277"
+            data-ad-slot="ca-app-pub-5295395372805141/9485337305"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div id="audioList">
+        <div class="audio-item">
+            <h3>📖 Super Yodha Episode 1950-1960</h3>
+            <button class="play-btn" onclick="toggleAudio(this)">▶ Play</button>
+            <audio>
+                <source src="https://media.vocaroo.com/mp3/1cALWhAissXN" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <h3>📖 Super Yodha Episode 1962-1965</h3>
+            <button class="play-btn" onclick="toggleAudio(this)">▶ Play</button>
+            <audio>
+                <source src="https://media.vocaroo.com/mp3/1os7BUue1qaF" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <!-- Google AdSense Ad Slot Below Audio List -->
+    <div class="ad-container">
+        <p>Advertisement</p>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-app-pub-5295395372805141~6850363277"
+            data-ad-slot="ca-app-pub-5295395372805141/9895329012"
+            data-ad-format="auto"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <script>
+        function toggleAudio(button) {
+            let audio = button.nextElementSibling;
+
+            // Stop all other audios
+            document.querySelectorAll("audio").forEach(a => {
+                if (a !== audio) {
+                    a.pause();
+                    a.previousElementSibling.innerHTML = "▶ Play";
+                }
+            });
+
+            // Play or Pause the current audio
+            if (audio.paused) {
+                audio.play();
+                button.innerHTML = "⏸ Pause";
+            } else {
+                audio.pause();
+                button.innerHTML = "▶ Play";
+            }
+
+            // Change button text when audio ends
+            audio.onended = function() {
+                button.innerHTML = "▶ Play";
+            };
+        }
+    </script>
+
+</body>
+</html>
